@@ -1,0 +1,17 @@
+{
+  "name": "vue-generic-fc",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite"
+  },
+  "dependencies": {
+    "vue": "^3.4.33"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "latest",
+    "typescript": "^5.5.3",
+    "vite": "latest"
+  }
+}

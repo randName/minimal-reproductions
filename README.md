@@ -1,4 +1,1 @@
-# minimal reproductions
-
-everything is in branches
-
+# Vue Generic Functional Component
