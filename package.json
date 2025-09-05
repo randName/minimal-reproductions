@@ -1,0 +1,18 @@
+{
+	"name": "singpass-demo-app",
+	"private": true,
+	"version": "0.0.0",
+	"type": "module",
+	"scripts": {
+		"start": "concurrently mockpass 'npm run dev'",
+		"dev": "node --watch --env-file=.env ./src/index.js"
+	},
+	"dependencies": {
+		"h3": "^2.0.0-beta.4",
+		"openid-client": "^5.7.0"
+	},
+	"devDependencies": {
+		"@opengovsg/mockpass": "^4.5.0",
+		"concurrently": "^9.2.0"
+	}
+}

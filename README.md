@@ -1,4 +1,1 @@
-# minimal reproductions
-
-everything is in branches
-
+# Singpass demo app
