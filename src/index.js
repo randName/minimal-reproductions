@@ -18,7 +18,7 @@ const client = new issuer.Client(
 		token_endpoint_auth_method: 'private_key_jwt',
 		response_types: ['code'],
 
-		id_token_signed_response_alg: sigKey.alg,
+		id_token_signed_response_alg: 'ES256',
 
 		id_token_encrypted_response_alg: encKey.alg,
 
