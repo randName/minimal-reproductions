@@ -20,11 +20,13 @@ const client = new issuer.Client(
 
 		id_token_signed_response_alg: 'ES256',
 
-		id_token_encrypted_response_alg: encKey.alg,
+		...(config.USE_MOCKPASS_ISSUER
+			? { id_token_encrypted_response_alg: encKey.alg }
+			: null), // demo app is not encrypting
 
 		id_token_encrypted_response_enc: 'A256CBC-HS512',
 
-		userinfo_signed_response_alg: sigKey.alg,
+		userinfo_signed_response_alg: 'ES256',
 
 		userinfo_encrypted_response_alg: encKey.alg,
 
@@ -61,6 +63,15 @@ app.get('/url', async (evt) => {
 	return { url }
 })
 
+const getUserinfo = async (tokenSet) => {
+	try {
+		return await client.userinfo(tokenSet)
+	} catch (err) {
+		console.log(`could not get userinfo: ${err}`)
+		return null
+	}
+}
+
 app.get('/callback', async (evt) => {
 	const session = await useSession(evt, config.session)
 
@@ -71,6 +82,7 @@ app.get('/callback', async (evt) => {
 			session.data
 		)
 		console.log(tokenSet.claims())
+		console.log(await getUserinfo(tokenSet))
 		return callbackHtml(`ok`)
 	} catch (err) {
 		console.log(err)
@@ -82,7 +94,10 @@ app.get('/', (evt) => {
 	return html(evt, indexHtml())
 })
 
-serve(app, {
+const server = serve(app, {
 	port: 3080,
 	silent: true,
 })
+
+await server.ready()
+console.log('server ready')

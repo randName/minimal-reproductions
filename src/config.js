@@ -1,5 +1,5 @@
 const USE_MOCKPASS_KEYS = true
-const USE_MOCKPASS_ISSUER = true
+export const USE_MOCKPASS_ISSUER = true
 
 export const PRIVATE_SIG_KEY = /** @type {const} */ ({
 	kid: 'my-sig-key',
@@ -49,7 +49,7 @@ export const CLIENT_ID = 'RsrOy2iB0edR53TJSuD5ULad1pGmrVZL'
 export const REDIRECT_URI = 'http://localhost:3080/callback'
 
 export const ISSUER_URL = USE_MOCKPASS_ISSUER
-	? 'http://localhost:5156/singpass/v2/'
+	? 'http://localhost:5156/singpass/v2'
 	: 'https://stg-id.singpass.gov.sg'
 
 export const session = {
