@@ -12,7 +12,7 @@
 		"openid-client": "^5.7.0"
 	},
 	"devDependencies": {
-		"@opengovsg/mockpass": "^4.5.0",
+		"@opengovsg/mockpass": "^4.5.1",
 		"concurrently": "^9.2.0"
 	}
 }
